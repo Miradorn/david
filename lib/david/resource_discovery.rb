@@ -74,7 +74,7 @@ module David
     end
 
     def routes
-      Rails.application.routes.routes.map do |route|
+      Rails.application.routes.routes.filter{|route| route.path.spec.to_s=="bulb"}.map do |route|
         [
           route.path.spec.to_s,
           route.defaults[:controller],

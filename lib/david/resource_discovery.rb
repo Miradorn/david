@@ -75,7 +75,7 @@ module David
 
     def routes
       Rails.application.routes.routes.map do |route|
-        next unless ["bulb"].include?(route.path.spec.to_s)
+        next unless ["/bulb(.:format)"].include?(route.path.spec.to_s)
         [
           route.path.spec.to_s,
           route.defaults[:controller],

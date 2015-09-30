@@ -81,7 +81,7 @@ module David
           route.defaults[:controller],
           route.defaults[:action]
         ]
-      end
+      end.reject{|r| r.nil?}
     end
 
     def routes_hash

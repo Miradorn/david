@@ -74,7 +74,8 @@ module David
     end
 
     def routes
-      Rails.application.routes.routes.detect{|route| }.map do |route|
+      Rails.application.routes.routes.map do |route|
+        next unless ["bulb"].include?(route.path.spec.to_s)
         [
           route.path.spec.to_s,
           route.defaults[:controller],
